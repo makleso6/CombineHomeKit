@@ -6,7 +6,7 @@ public final class HMCharacteristicPublisher {
     
     let characteristic: HMCharacteristic
     
-    init(characteristic: HMCharacteristic) {
+    public init(characteristic: HMCharacteristic) {
         self.characteristic = characteristic
     }
 

@@ -6,7 +6,7 @@ public final class HMHomePublisher {
     
     private let home: HMHome
     
-    init(home: HMHome) {
+    public init(home: HMHome) {
         self.home = home
     }
     

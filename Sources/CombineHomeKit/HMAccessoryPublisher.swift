@@ -6,7 +6,7 @@ public final class HMAccessoryPublisher {
     
     let accessory: HMAccessory
     
-    init(accessory: HMAccessory) {
+    public init(accessory: HMAccessory) {
         self.accessory = accessory
     }
 

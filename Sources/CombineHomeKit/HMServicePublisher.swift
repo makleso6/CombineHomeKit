@@ -6,7 +6,7 @@ public final class HMServicePublisher {
     
     let service: HMService
     
-    init(service: HMService) {
+    public init(service: HMService) {
         self.service = service
     }
     
