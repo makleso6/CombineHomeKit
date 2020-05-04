@@ -14,12 +14,8 @@ public final class HMHomeManagerPublisher {
         return Just(homeManager.authorizationStatus).eraseToAnyPublisher()
     }
 
-    public var primaryHome: AnyPublisher<HMHome, Never> {
-        return Result
-            .success(homeManager)
-            .publisher
-            .compactMap({ $0.primaryHome })
-            .eraseToAnyPublisher()
+    public var primaryHome: AnyPublisher<HMHome?, Never> {
+        return Just(homeManager.primaryHome).eraseToAnyPublisher()
     }
 
     public var homes: AnyPublisher<[HMHome], Never> {
