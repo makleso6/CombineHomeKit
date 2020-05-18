@@ -34,7 +34,7 @@ public final class HMCharacteristicPublisher {
 
     }
 
-    public var value: AnyPublisher<Any, Never> {
+    public var value: AnyPublisher<Any?, Never> {
         return Just(characteristic.value).eraseToAnyPublisher()
     }
 
