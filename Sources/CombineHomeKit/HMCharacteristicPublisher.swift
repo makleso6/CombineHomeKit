@@ -29,18 +29,13 @@ public final class HMCharacteristicPublisher {
         return Just(characteristic.properties).eraseToAnyPublisher()
     }
 
-    public var metadata: AnyPublisher<HMCharacteristicMetadata, Never> {
-        return Result.success(characteristic)
-            .publisher
-            .compactMap({ $0.metadata })
-            .eraseToAnyPublisher()
+    public var metadata: AnyPublisher<HMCharacteristicMetadata?, Never> {
+        return Just(characteristic.metadata).eraseToAnyPublisher()
+
     }
 
     public var value: AnyPublisher<Any, Never> {
-        return Result.success(characteristic)
-            .publisher
-            .compactMap({ $0.value })
-            .eraseToAnyPublisher()
+        return Just(characteristic.value).eraseToAnyPublisher()
     }
 
     public var isNotificationEnabled: AnyPublisher<Bool, Never> {

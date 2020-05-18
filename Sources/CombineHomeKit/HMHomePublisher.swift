@@ -73,13 +73,7 @@ extension HMHomePublisher {
     }
     
     public func servicesWithTypes(_ serviceTypes: [String]) -> AnyPublisher<[HMService], Never> {
-        return Result
-            .success(home)
-            .publisher
-            .compactMap({
-                $0.servicesWithTypes(serviceTypes)
-            })
-            .eraseToAnyPublisher()
+        return Just(home.servicesWithTypes(serviceTypes) ?? []).eraseToAnyPublisher()
     }
     
     @available(iOS 13.2, *)

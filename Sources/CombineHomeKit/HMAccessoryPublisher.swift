@@ -27,10 +27,7 @@ public final class HMAccessoryPublisher {
     }
 
     public var uniqueIdentifiersForBridgedAccessories: AnyPublisher<[UUID], Never> {
-        return Result.success(accessory)
-            .publisher
-            .compactMap({ $0.uniqueIdentifiersForBridgedAccessories })
-            .eraseToAnyPublisher()
+        return Just(accessory.uniqueIdentifiersForBridgedAccessories ?? []).eraseToAnyPublisher()
     }
 
     public var category: AnyPublisher<HMAccessoryCategory, Never> {
@@ -56,25 +53,16 @@ public final class HMAccessoryPublisher {
         return Just(accessory.isBlocked).eraseToAnyPublisher()
     }
 
-    public var model: AnyPublisher<String, Never> {
-        return Result.success(accessory)
-        .publisher
-        .compactMap({ $0.model })
-        .eraseToAnyPublisher()
+    public var model: AnyPublisher<String?, Never> {
+        return Just(accessory.model).eraseToAnyPublisher()
     }
 
-    public var manufacturer: AnyPublisher<String, Never> {
-        return Result.success(accessory)
-        .publisher
-        .compactMap({ $0.manufacturer })
-        .eraseToAnyPublisher()
+    public var manufacturer: AnyPublisher<String?, Never> {
+        return Just(accessory.manufacturer).eraseToAnyPublisher()
     }
 
-    public var firmwareVersion: AnyPublisher<String, Never> {
-        return Result.success(accessory)
-        .publisher
-        .compactMap({ $0.firmwareVersion })
-        .eraseToAnyPublisher()
+    public var firmwareVersion: AnyPublisher<String?, Never> {
+        return Just(accessory.firmwareVersion).eraseToAnyPublisher()
     }
 
     public var supportsIdentify: AnyPublisher<Bool, Never> {

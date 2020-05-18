@@ -51,10 +51,7 @@ public final class HMServicePublisher {
     
     
     public var linkedServices: AnyPublisher<[HMService], Never> {
-        return Result.success(service)
-            .publisher
-            .compactMap({ $0.linkedServices })
-            .eraseToAnyPublisher()
+        return Just(service.linkedServices ?? []).eraseToAnyPublisher()
     }
     
     public func updateName(_ name: String) -> AnyPublisher<Void, Error> {
